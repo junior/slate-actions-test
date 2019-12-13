@@ -1,6 +1,11 @@
 name: Docs
 
-on: [push]
+on:
+  push:
+    branches: 
+      - master
+    paths:
+    - 'src/docs/**'
 
 jobs:
   build-and-deploy:
@@ -16,18 +21,16 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Build
+    - name: Build Slate Docs
       run: |
           cd src/docs
           gem install bundler
           bundle install --retry 3
           bundle exec middleman build --clean
-          pwd
-          ls -lah build
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BASE_BRANCH: master # The branch the action should deploy from.
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: src/docs/build # The folder the action should deploy.
+        BASE_BRANCH: master
+        BRANCH: gh-pages
+        FOLDER: src/docs/build
