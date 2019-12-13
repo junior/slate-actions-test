@@ -1,4 +1,4 @@
-# Acknowledgements
+# WTF Acknowledgements
 
 This project, and its associative materials utilizes many excellent projects from
 the open source community. While there are numerous, the following projects deserve
