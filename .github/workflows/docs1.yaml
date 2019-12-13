@@ -1,4 +1,4 @@
-name: Docs
+name: Publish Slate Docs
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
       - master
     paths:
     - 'src/docs/**'
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -27,7 +26,7 @@ jobs:
           gem install bundler
           bundle install --retry 3
           bundle exec middleman build --clean
-    - name: Deploy
+    - name: Publish to Github Pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
