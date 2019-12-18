@@ -1,4 +1,4 @@
-# Introduction XXX aaa ccc
+# Introduction ZZZ
 
 MuShop is a microservices demo application **purpose-built** to showcase
 interoperable [Cloud Native](https://www.oracle.com/cloud/cloud-native/) services on
